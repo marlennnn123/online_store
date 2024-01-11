@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Удаление Фильма</title>
+</head>
+<body>
+    <h2>Вы уверены, что хотите удалить "{{ movie.name }}"?</h2>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Удалить</button>
+    </form>
+    <a href="{% url 'movies_list' %}">Отмена</a>
+</body>
+</html>

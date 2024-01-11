@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Редактирование Фильма</title>
+</head>
+<body>
+    <h2>Редактировать Фильм</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Сохранить Изменения</button>
+    </form>
+    <a href="{% url 'movies_list' %}">Назад к списку фильмов</a>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Список Фильмов</title>
+</head>
+<body>
+    <h1>Список Фильмов</h1>
+
+    <a href="{% url 'add_movie' %}">Добавить фильм</a>
+
+    <div>
+        {% for movie in movies %}
+        <div>
+            <h3>{{ movie.name }}</h3>
+            <p>Описание: {{ movie.description }}</p>
+            <p>Страна: {{ movie.country }}</p>
+            <p>Категория: {{ movie.category }}</p>
+            <a href="{% url 'edit_movie' movie.id %}">Изменить</a>
+            <form method="post" action="{% url 'delete_movie' movie.id %}">
+                {% csrf_token %}
+                <button type="submit">Удалить</button>
+            </form>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
